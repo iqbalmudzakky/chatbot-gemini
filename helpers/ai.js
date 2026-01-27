@@ -3,7 +3,7 @@ import { GoogleGenAI } from "@google/genai";
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 const GEMINI_MODEL = "gemini-2.5-flash";
 
-export async function generateText(prompt) {
+export async function responseForText(prompt) {
   const response = await ai.models.generateContent({
     model: GEMINI_MODEL,
     contents: prompt,
@@ -12,7 +12,7 @@ export async function generateText(prompt) {
   return response.text;
 }
 
-export async function processingFileUpload(prompt, fileUpload) {
+export async function responseForFile(prompt, fileUpload) {
   const response = await ai.models.generateContent({
     model: GEMINI_MODEL,
     contents: [
