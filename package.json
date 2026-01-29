@@ -7,12 +7,13 @@
     "dev": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "M Iqbal Mudzakky",
   "license": "ISC",
   "type": "module",
-  "description": "",
+  "description": "An Express.js server integrating Google Gemini API for text and file processing and chat functionality.",
   "dependencies": {
     "@google/genai": "^1.38.0",
+    "cors": "^2.8.6",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "multer": "^2.0.2"

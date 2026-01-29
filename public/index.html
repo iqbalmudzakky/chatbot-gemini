@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gemini AI Chatbot</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="header-content">
+          <h1>🎮 AI Game Assistant</h1>
+          <p class="subtitle">Your intelligent gaming companion</p>
+        </div>
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          aria-label="Toggle theme"
+        >
+          <span class="theme-icon">🌙</span>
+        </button>
+      </div>
+      <div id="chat-box" class="chat-box"></div>
+      <form id="chat-form">
+        <input
+          type="text"
+          id="user-input"
+          placeholder="Ask me anything about games..."
+          autocomplete="off"
+          required
+        />
+        <button type="submit">
+          <span class="send-icon">➤</span>
+        </button>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

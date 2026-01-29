@@ -1,22 +1,22 @@
 import "dotenv/config";
 
 import express from "express";
-import multer from "multer";
+import cors from "cors";
+import path from "path";
+import { fileURLToPath } from "url";
 
-import { AIController } from "./controllers/aiController.js";
+import router from "./Routes/index.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const port = 3000;
-const upload = multer();
 
+app.use(cors());
 app.use(express.json());
-
-app.post("/generate-text", AIController.generateText);
-app.post(
-  "/file-processing",
-  upload.single("fileUpload"), // fileUpload is the name of the form field
-  AIController.processingFileUpload,
-);
+app.use(express.static(path.join(__dirname, "public")));
+app.use("/api", router);
 
 app.listen(port, () => {
   console.log(`Gemini Flash API server running at http://localhost:${port}`);

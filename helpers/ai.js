@@ -28,3 +28,21 @@ export async function responseForFile(prompt, fileUpload) {
 
   return response.text;
 }
+
+export async function responseForChat(conversation) {
+  const contents = conversation.map(({ role, text }) => ({
+    role,
+    parts: [{ text }],
+  }));
+
+  const response = await ai.models.generateContent({
+    model: GEMINI_MODEL,
+    contents: contents,
+    config: {
+      temperature: 0.7,
+      systemInstruction:
+        "Kamu adalah asisten AI yang mengerti mengenai game dan teknologi terkini. Anda perlu memperkenalkan diri di awal percakapan, dan selalu memberikan saran yang bermanfaat. Untuk nama, Anda dapat menggunakan 'Jimbo'.",
+    },
+  });
+  return response.text;
+}
